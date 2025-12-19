@@ -1,0 +1,210 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Hide scrollbar while maintaining scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+/* Custom CSS Variables for easy color customization */
+:root {
+  /* Primary Colors */
+--primary-50:  #FFF1F4;
+--primary-100: #FFE4EB;
+--primary-200: #FECDD9;
+--primary-300: #FDA4B9;
+--primary-400: #FB7091;
+--primary-500: #F94870;
+--primary-600: #FC3861; /* your base */
+--primary-700: #E02253;
+--primary-800: #B91C46;
+--primary-900: #991A3D;
+
+
+  /* Secondary Colors */
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-200: #e2e8f0;
+  --secondary-300: #cbd5e1;
+  --secondary-400: #94a3b8;
+  --secondary-500: #64748b;
+  --secondary-600: #475569;
+  --secondary-700: #334155;
+  --secondary-800: #1e293b;
+  --secondary-900: #0f172a;
+}
+
+/* Expose header height as a CSS variable so pages can center correctly beneath sticky header */
+:root {
+  --header-height: 4rem; /* default header height; override if header size changes */
+}
+
+
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use secondary font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scrolling on mobile */
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure images never overflow the viewport width */
+img, svg, video, canvas {
+  max-width: 100%;
+}
+
+/* Custom Scrollbar Styling */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Make it thin */
+  height: 8px; /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF1F4; /* Primary-50 for track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FB7091; /* Primary-400 for the thumb */
+  border-radius: 10px;
+  border: 1px solid #FFF1F4; /* Subtle border */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F94870; /* Primary-500 on hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #FC3861; /* Primary-600 when active */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin; /* Make it thin */
+  scrollbar-color: #FB7091 #FFF1F4; /* thumb color track color */
+}
+
+/* Modal scrollbar styling */
+.modal-scroll::-webkit-scrollbar {
+  width: 6px; /* Even thinner for modals */
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: #FFF1F4; /* Primary-50 for modals */
+  border-radius: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #FECDD9; /* Primary-200 for modal thumb */
+  border-radius: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #FB7091; /* Primary-400 on hover */
+}
+
+/* Utility classes for modal behavior */
+.body-scroll-lock {
+  overflow: hidden !important;
+  padding-right: 8px; /* Prevent layout shift from scrollbar disappearing */
+}
+
+/* Smooth transitions for scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FB7091 #FFF1F4;
+}
+
+/* Custom utility classes */
+.text-primary {
+  color: var(--primary-600);
+}
+
+.bg-primary {
+  background-color: var(--primary-600);
+}
+
+.border-primary {
+  border-color: var(--primary-600);
+}
+
+/* Testimonial card improvements */
+.testimonial-card {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-text {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.6;
+}
+
+.testimonial-text.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
